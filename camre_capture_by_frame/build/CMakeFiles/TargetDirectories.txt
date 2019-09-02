@@ -1,0 +1,3 @@
+/home/pi/work/camre_capture_by_frame/build/CMakeFiles/edit_cache.dir
+/home/pi/work/camre_capture_by_frame/build/CMakeFiles/cam_cap.dir
+/home/pi/work/camre_capture_by_frame/build/CMakeFiles/rebuild_cache.dir

@@ -5,10 +5,10 @@ if(COMMAND cmake_policy)
 endif(COMMAND cmake_policy)
 
 FIND_PACKAGE( OpenCV REQUIRED )
-
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 # Declare the target (an executable)
 ADD_EXECUTABLE(cam_cap  cam_cap.cpp)
 
-TARGET_LINK_LIBRARIES(cam_cap ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(cam_cap ${OpenCV_LIBS} ${CMAKE_THREAD_LIBS_INIT})
 
 #MESSAGE(STATUS "OpenCV_LIBS: ${OpenCV_LIBS}")

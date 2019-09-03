@@ -4,9 +4,6 @@
 plugins/input_opencv/filters/cvfilter_cpp/CMakeFiles/cvfilter_cpp.dir/filter_cpp.cpp.o
  /home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/plugins/input_opencv/filters/cvfilter_cpp/filter_cpp.cpp
  /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/contrib/contrib.hpp
- /usr/local/include/opencv2/contrib/openfabmap.hpp
- /usr/local/include/opencv2/contrib/retina.hpp
  /usr/local/include/opencv2/core/affine.hpp
  /usr/local/include/opencv2/core/core.hpp
  /usr/local/include/opencv2/core/core_c.h

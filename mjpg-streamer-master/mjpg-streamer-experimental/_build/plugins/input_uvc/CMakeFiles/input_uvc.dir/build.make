@@ -168,6 +168,7 @@ plugins/input_uvc/input_uvc.so: plugins/input_uvc/CMakeFiles/input_uvc.dir/input
 plugins/input_uvc/input_uvc.so: plugins/input_uvc/CMakeFiles/input_uvc.dir/jpeg_utils.c.o
 plugins/input_uvc/input_uvc.so: plugins/input_uvc/CMakeFiles/input_uvc.dir/v4l2uvc.c.o
 plugins/input_uvc/input_uvc.so: plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make
+plugins/input_uvc/input_uvc.so: /usr/lib/arm-linux-gnueabihf/libv4l2.so
 plugins/input_uvc/input_uvc.so: /usr/lib/arm-linux-gnueabihf/libjpeg.so
 plugins/input_uvc/input_uvc.so: plugins/input_uvc/CMakeFiles/input_uvc.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C shared library input_uvc.so"

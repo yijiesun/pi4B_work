@@ -90,25 +90,23 @@ cam_cap_EXTERNAL_OBJECTS =
 
 cam_cap: CMakeFiles/cam_cap.dir/cam_cap.cpp.o
 cam_cap: CMakeFiles/cam_cap.dir/build.make
-cam_cap: /usr/local/lib/libopencv_videostab.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_ts.a
-cam_cap: /usr/local/lib/libopencv_superres.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_stitching.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_contrib.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_nonfree.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_ocl.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_gpu.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_photo.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_objdetect.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_legacy.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_video.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_ml.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_calib3d.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_features2d.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_highgui.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_imgproc.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_flann.so.2.4.13
-cam_cap: /usr/local/lib/libopencv_core.so.2.4.13
+cam_cap: /usr/local/lib/libopencv_objdetect.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_dnn.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_stitching.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_videostab.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_photo.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_superres.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_shape.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_calib3d.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_ml.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_features2d.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_highgui.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_flann.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_videoio.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_imgcodecs.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_video.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_imgproc.so.3.4.3
+cam_cap: /usr/local/lib/libopencv_core.so.3.4.3
 cam_cap: CMakeFiles/cam_cap.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/work/camre_capture_by_frame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cam_cap"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cam_cap.dir/link.txt --verbose=$(VERBOSE)

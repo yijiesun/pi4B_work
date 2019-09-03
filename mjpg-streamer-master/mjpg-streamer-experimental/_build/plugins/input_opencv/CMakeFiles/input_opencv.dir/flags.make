@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -O3 -DNDEBUG -fPIC  
 
-CXX_DEFINES = -Dinput_opencv_EXPORTS
+CXX_DEFINES = -DGIT_HASH=\"f8b26e16b476cfbd322bb9dac6b1317c230256fc\" -Dinput_opencv_EXPORTS
 
-CXX_INCLUDES = -I/usr/local/include/opencv -I/usr/local/include 
+CXX_INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
-//#include <pthread.h>
+#include <pthread.h>
 
 using namespace cv;
 using namespace std;

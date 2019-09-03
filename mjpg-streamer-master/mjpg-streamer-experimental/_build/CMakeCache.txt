@@ -261,7 +261,7 @@ SDL_INCLUDE_DIR:PATH=SDL_INCLUDE_DIR-NOTFOUND
 SDL_LIBRARY_TEMP:FILEPATH=SDL_LIBRARY_TEMP-NOTFOUND
 
 //Path to a library.
-V4L2_LIB:FILEPATH=V4L2_LIB-NOTFOUND
+V4L2_LIB:FILEPATH=/usr/lib/arm-linux-gnueabihf/libv4l2.so
 
 //$DESCRIPTION
 WXP_COMPAT:BOOL=OFF
@@ -282,13 +282,13 @@ input_file_LIB_DEPENDS:STATIC=
 input_http_LIB_DEPENDS:STATIC=
 
 //Dependencies for the target
-input_opencv_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_highgui;
+input_opencv_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_highgui;general;opencv_videoio;
 
 //Dependencies for the target
 input_raspicam_LIB_DEPENDS:STATIC=general;mmal_core;general;mmal_util;general;mmal_vc_client;general;vcos;general;bcm_host;
 
 //Dependencies for the target
-input_uvc_LIB_DEPENDS:STATIC=general;/usr/lib/arm-linux-gnueabihf/libjpeg.so;
+input_uvc_LIB_DEPENDS:STATIC=general;/usr/lib/arm-linux-gnueabihf/libv4l2.so;general;/usr/lib/arm-linux-gnueabihf/libjpeg.so;
 
 //Value Computed by CMake
 mjpg-streamer_BINARY_DIR:STATIC=/home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/_build
@@ -446,12 +446,14 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][cfound components:  core imgproc highgui videoio ][v3.4.3()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29()]
 //Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3.4][v3.4.4()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3.4][v1.4()]
 //Details about finding PythonLibs
-FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/arm-linux-gnueabihf/libpython3.4m.so][/usr/include/python3.4m][v3.4.4()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/arm-linux-gnueabihf/libpython3.4m.so][/usr/include/python3.4m][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GPHOTO2_INCLUDE_DIR

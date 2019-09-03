@@ -8,9 +8,6 @@ plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: ../plugins/
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: ../plugins/output.h
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: ../utils.h
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
-plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/contrib/contrib.hpp
-plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/contrib/openfabmap.hpp
-plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/contrib/retina.hpp
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/core/affine.hpp
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/core/core.hpp
 plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o: /usr/local/include/opencv2/core/core_c.h

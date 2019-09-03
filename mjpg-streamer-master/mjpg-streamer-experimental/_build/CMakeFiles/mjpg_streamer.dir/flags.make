@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_FLAGS = -O3 -DNDEBUG  
 
-C_DEFINES = 
+C_DEFINES = -DGIT_HASH=\"f8b26e16b476cfbd322bb9dac6b1317c230256fc\"
 
 C_INCLUDES = 
 

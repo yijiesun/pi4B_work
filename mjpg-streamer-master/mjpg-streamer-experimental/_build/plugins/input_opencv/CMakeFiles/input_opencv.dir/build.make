@@ -90,9 +90,11 @@ input_opencv_EXTERNAL_OBJECTS =
 
 plugins/input_opencv/input_opencv.so: plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o
 plugins/input_opencv/input_opencv.so: plugins/input_opencv/CMakeFiles/input_opencv.dir/build.make
-plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_highgui.so.2.4.13
-plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_imgproc.so.2.4.13
-plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_core.so.2.4.13
+plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_highgui.so.3.4.3
+plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_videoio.so.3.4.3
+plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_imgcodecs.so.3.4.3
+plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_imgproc.so.3.4.3
+plugins/input_opencv/input_opencv.so: /usr/local/lib/libopencv_core.so.3.4.3
 plugins/input_opencv/input_opencv.so: plugins/input_opencv/CMakeFiles/input_opencv.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library input_opencv.so"
 	cd /home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/_build/plugins/input_opencv && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/input_opencv.dir/link.txt --verbose=$(VERBOSE)

@@ -9,9 +9,6 @@ plugins/input_opencv/CMakeFiles/input_opencv.dir/input_opencv.cpp.o
  /home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/plugins/output.h
  /home/pi/work/mjpg-streamer-master/mjpg-streamer-experimental/utils.h
  /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/contrib/contrib.hpp
- /usr/local/include/opencv2/contrib/openfabmap.hpp
- /usr/local/include/opencv2/contrib/retina.hpp
  /usr/local/include/opencv2/core/affine.hpp
  /usr/local/include/opencv2/core/core.hpp
  /usr/local/include/opencv2/core/core_c.h

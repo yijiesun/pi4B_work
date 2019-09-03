@@ -13,7 +13,9 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
+  "GIT_HASH=\"f8b26e16b476cfbd322bb9dac6b1317c230256fc\""
   "LINUX"
+  "USE_LIBV4L2"
   "_GNU_SOURCE"
   )
 

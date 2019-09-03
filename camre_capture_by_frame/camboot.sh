@@ -1,3 +1,4 @@
+#!/bin/bash -v
 cd /home/pi/work/camre_capture_by_frame
 ./dirname.sh
 cd /home/pi/work/camre_capture_by_frame/build

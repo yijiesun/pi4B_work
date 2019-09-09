@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -v
 cd /home/pi/work/pandog
 if [ ! -f "all.txt" ];then
 touch all.txt
@@ -9,6 +9,6 @@ all=`df -h`
 #echo $all
 var=${all%\%*}
 var=${var%T*}
-var=${var%T*}
-var=${var#*sda2 }
+#var=${var%T*}
+var=${var#*G }
 echo $var | tee all.txt

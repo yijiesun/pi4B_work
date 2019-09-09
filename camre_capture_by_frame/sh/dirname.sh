@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -v
 cd /home/pi/work/westdata
 if [ ! -f "savedDirectorsList.txt" ];then
 touch savedDirectorsList.txt

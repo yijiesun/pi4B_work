@@ -18,6 +18,9 @@ void *DeleteDir(void *threadarg)
 
 double moveDetect(Mat &cur, Mat &last, int wid, int hgt)
 {
+	cv::Mat cur_, last_;
+	cur_ = cur.clone();
+	last_ = last.clone();
 	cv::Mat frame_cur_gray, frame_last_gray;
 	cv::Mat diff(cv::Size(wid, hgt), CV_8UC1);
 	cvtColor(cur, frame_cur_gray, CV_BGR2GRAY);

@@ -55,6 +55,7 @@ int main(int argc, char* argv[])
 	cout << MOVEBUFFCNT << "--" << UPMINUS << "--" << DOX << endl;
 	int fileDay = -1;
 	int saveBuffImgCnt = 0;
+	int newFramePos = 0;
 	system("sh ../sh/watchp.sh");
 	string savedDirectorsList;
 	string allDirectorsList;
@@ -117,7 +118,7 @@ int main(int argc, char* argv[])
 	cout << "\033[36m" << "--------------------start capture camera--------------------" << endl << endl;
 	time_t lastTime;
 	time(&lastTime);
-	Mat frame_cur, frame_last;
+	Mat frame_cur[2];
 
 	SqQueue FRAMESQ(MOVEBUFFCNT);
 	cout << "\033[36m" << "SqQueue create successed!" << endl;
@@ -131,34 +132,26 @@ int main(int argc, char* argv[])
 		time_t tt;
 		time(&tt);
 		tm* t;
-		video >> frame_cur;
+		video >> frame_cur[newFramePos];
 		
-		if(!frame_cur.empty())
+		if(!frame_cur[newFramePos].empty())
 		{
 			isCatchMove = false;
 			if (first)
 			{
-				frame_last = frame_cur.clone();
+				frame_cur[1 - newFramePos] = frame_cur[newFramePos];
+				//frame_last = frame_cur.clone();
 				for (int i = 0; i < MOVEBUFFCNT; i++)
-					FRAMESQ.EnterQueue(frame_cur);
+					FRAMESQ.EnterQueue(frame_cur[newFramePos]);
 				first = !first;
 				cout << "\033[36m" << "SqQueue init successed!" << endl;
 				continue;
 			}
-			//cnnt++;
-			//if (cnnt > 100)
-			//{
-			//	outputVideo.release();
-			//	return 0;
-			//}
 
-			    FRAMESQ.EnterQueue(frame_cur);
-				//outputVideo << FRAMESQ.base[FRAMESQ.rear];
-				//if (waitKey(30) > 0) break;
-				//continue;
+			    FRAMESQ.EnterQueue(frame_cur[1-newFramePos]);
 
 
-			if (tt - lastTime >= CAPFPS)
+			//if (tt - lastTime >= CAPFPS)
 			{
 				lastTime = tt;
 				tt = tt + 8 * 3600;  // transform the time zone
@@ -191,52 +184,6 @@ int main(int argc, char* argv[])
 				if (fileDay != t->tm_mday)
 				{
                                         fileDay = t->tm_mday;
-#if 0
-					if(memFreeSize < MEMBOTTUN && !dirVectorSaved.empty())
-					{
-						while(memFreeSize < MEMBOTTUN && !dirVectorSaved.empty())
-						{
-							//statfs("/", &diskStatfs);
-							//freeBlocks = diskStatfs.f_bfree;
-							//freeSize = freeBlocks * diskStatfs.f_bsize;
-							//memFreeSize = freeSize >> 20;
-							system("sh ../sh/watchp.sh");
-							string strbuftmp;
-							getline(ioFileWestaData, strbuftmp);
-							westdatapercent = atoi(strbuftmp.c_str());
-							freeSize = (unsigned long long)((double)freeBlocks * (100 - westdatapercent) / 100.0);
-							memFreeSize = freeSize;
-							string tmp = dirVectorSaved.front();
-							DeleteFile(tmp.c_str());
-							rmdir(tmp.c_str());
-							vector<string>::iterator k = dirVectorSaved.begin();
-							dirVectorSaved.erase(k);
-							cout << "\033[91m" << log_Time() << "[warnning] mem is small than safe line !! memery size:" << memFreeSize << endl;
-							cout << "\033[91m" << log_Time() << "delete " << tmp << " remain " << dirVectorSaved.size() << " directories" << endl;
-						}
-					}
-					if (memFreeSize < SAFEMEMORY && !dirVectorSaved.empty())
-					{
-						pthread_t threads;
-						int rc;
-						
-						string tmp = dirVectorSaved.front();
-						//DeleteFile(tmp.c_str());
-						vector<string>::iterator k = dirVectorSaved.begin();
-						dirVectorSaved.erase(k);
-						cout << "\033[31m" << log_Time() << "[warnning] mem full !! memery size:" << memFreeSize << endl;
-						cout << "\033[31m" << log_Time() << "delete " << tmp << " remain " << dirVectorSaved.size() << " directories" << endl;
-						td.message = tmp;
-						rc = pthread_create(&threads, NULL, DeleteDir, (void *)&td);
-						if (rc){
-							cout << "\031[41m" << log_Time() << "Error:unable to create thread," << rc << "\033[0m" << endl;
-							pthread_exit(NULL);
-							pthread_join(threads, NULL);
-							//exit(-1);
-						}
-						//pthread_join(threads, NULL);
-					}
-#endif	
 					dirsDay.clear();
 					dirsDay.str("");
 					char bufDay[100];
@@ -271,13 +218,13 @@ int main(int argc, char* argv[])
 				//freeSize = (unsigned long long)((double)freeBlocks * (100 - westdatapercent) / 100.0);
 				//memFreeSize = freeSize;
 #endif
-				double whitePercent = moveDetect(frame_cur, frame_last, WID, HGT);
+				double whitePercent = moveDetect(frame_cur[newFramePos], frame_cur[1 - newFramePos], WID, HGT);
 				ioFileMoveDetect << bufSec <<"--" << whitePercent << endl;
 				if (whitePercent >= PERCENT)
 				{
 					isCatchMove = true;
 #ifdef SAVE_ALL_IMG
-					imwrite(imgFullName.str().c_str(), frame_cur);
+					imwrite(imgFullName.str().c_str(), frame_cur[newFramePos]);
 
 					cout << "\033[33m" << log_Time() << "save img: " << imgFullName.str() << endl;
 					//cout << "\033[32m" << log_Time() << "Free Size: " << memFreeSize << " GB" << endl;
@@ -285,7 +232,6 @@ int main(int argc, char* argv[])
 #endif
 				}
 				
-				frame_last = frame_cur.clone();
 
 			}
 			//after some times new find move 
@@ -320,7 +266,7 @@ int main(int argc, char* argv[])
 					imgFullName << dirsSon.str() << bufSec << "_" << saveBuffImgCnt++ << "." << DOX;
 					imwrite(imgFullName.str().c_str(), FRAMESQ.base[i]);
 					cout << "\033[33m" << log_Time() << "save img: " << imgFullName.str() << endl;
-					system("sh ../sh/watcha.sh");
+					//system("sh ../sh/watcha.sh");
 				}
 				for (int i = 0; i < FRAMESQ.front; i++)
 				{
@@ -329,7 +275,7 @@ int main(int argc, char* argv[])
 					imgFullName << dirsSon.str() << bufSec << "_" << saveBuffImgCnt++ << "." << DOX;
 					imwrite(imgFullName.str().c_str(), FRAMESQ.base[i]);
 					cout << "\033[33m" << log_Time() << "save img: " << imgFullName.str() << endl;
-					system("sh ../sh/watcha.sh");
+					//system("sh ../sh/watcha.sh");
 				}
 
 				cout << "\033[33m" << log_Time() << "save pre "<< MOVEBUFFCNT <<"frames successed! " << endl;
@@ -348,15 +294,17 @@ int main(int argc, char* argv[])
 				imgFullName.clear();
 				imgFullName.str("");
 				imgFullName << dirsSon.str() << bufSec << "." << DOX;
-				imwrite(imgFullName.str().c_str(), frame_cur);
-				cout << "\033[33m" << log_Time() << "save move frames: " << imgFullName.str() << endl;
+				imwrite(imgFullName.str().c_str(), frame_cur[newFramePos]);
+				
 				pushToAVICntRear--;
 				if (pushToAVICntRear == 0)
 				{
 					cout << "\033[33m" << log_Time() << "save move frames finish!: " << imgFullName.str() << endl;
 				}	
+				else
+					cout << "\033[33m" << log_Time() << "save move frames: " << imgFullName.str() << endl;
 			}
-
+			newFramePos = 1 - newFramePos;
 		}
 		//else{
 		//	cout << "\033[91m" << log_Time() << "[warnning] camera time out !! call camera firstadd!!"<< endl;

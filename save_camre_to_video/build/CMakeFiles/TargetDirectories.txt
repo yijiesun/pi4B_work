@@ -1,0 +1,3 @@
+/home/pi/work/save_camre_to_video/build/CMakeFiles/edit_cache.dir
+/home/pi/work/save_camre_to_video/build/CMakeFiles/save_cam.dir
+/home/pi/work/save_camre_to_video/build/CMakeFiles/rebuild_cache.dir

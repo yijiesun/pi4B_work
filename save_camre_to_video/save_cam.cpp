@@ -10,8 +10,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	int WID = 320;
-	int HGT = 240;
+	int WID = 1920;
+	int HGT = 1080;
 	VideoCapture capture(0);
 
 	if (!capture.isOpened())
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 
 	capture.set(CV_CAP_PROP_FRAME_HEIGHT, HGT);
 	cout << "1" << endl;
-	string outputVideoPath = "../result_temp.avi";
+	string outputVideoPath = "../../westdata/result_temp.avi";
 	Size sWH = Size(WID, HGT);
 	VideoWriter outputVideo;
 	//outputVideo.open(outputVideoPath, CV_FOURCC('M', 'P', '4', '2'), 25.0, sWH);

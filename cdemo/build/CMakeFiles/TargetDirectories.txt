@@ -1,3 +1,0 @@
-/home/pi/work/cdemo/build/CMakeFiles/edit_cache.dir
-/home/pi/work/cdemo/build/CMakeFiles/demo.dir
-/home/pi/work/cdemo/build/CMakeFiles/rebuild_cache.dir
